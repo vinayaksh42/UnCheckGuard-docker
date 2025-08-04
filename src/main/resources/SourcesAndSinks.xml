@@ -1,0 +1,29 @@
+<sinkSources>
+  <category id="NO_CATEGORY">
+    <method signature="DriverStub: java.lang.String source0()">
+      <return>
+        <accessPath isSource="true" isSink="false"/>
+      </return>
+    </method>
+    <method signature="com.alibaba.fastjson.JSONException: void &lt;init&gt;()">
+      <return>
+        <accessPath isSource="false" isSink="true"/>
+      </return>
+    </method>
+    <method signature="com.alibaba.fastjson.JSONException: void &lt;init&gt;(java.lang.String,java.lang.Throwable)">
+      <return>
+        <accessPath isSource="false" isSink="true"/>
+      </return>
+    </method>
+    <method signature="com.alibaba.fastjson.JSONException: void &lt;init&gt;(java.lang.String)">
+      <return>
+        <accessPath isSource="false" isSink="true"/>
+      </return>
+    </method>
+    <method signature="com.alibaba.fastjson.JSONException: void &lt;init&gt;(java.lang.Throwable)">
+      <return>
+        <accessPath isSource="false" isSink="true"/>
+      </return>
+    </method>
+  </category>
+</sinkSources>
