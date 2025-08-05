@@ -7,7 +7,7 @@ A tool to identify and compare unchecked exceptions in Java applications and lib
 
 ## 📋 Overview
 
-**UncheckedException** is a powerful utility designed to:
+**UncheckedException** is a tool designed to:
 
 1. Detect unchecked exceptions that may cause *behavioral breaking changes* (BBCs) in Java applications.  
 2. Compare two versions of a Java library to identify newly added unchecked exceptions.
