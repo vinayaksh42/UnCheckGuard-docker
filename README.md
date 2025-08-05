@@ -12,6 +12,8 @@ A tool to identify and compare unchecked exceptions in Java applications and lib
 1. Detect unchecked exceptions that may cause *behavioral breaking changes* (BBCs) in Java applications.  
 2. Compare two versions of a Java library to identify newly added unchecked exceptions.
 
+This repo is the Docker repo for UnCheckGuard; the main repo for UnCheckGuard is https://github.com/vinayaksh42/UncheckedException
+
 ---
 
 ## 🚀 Getting Started
