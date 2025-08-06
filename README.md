@@ -1,4 +1,4 @@
-# UnCheckGuard - Docker Repo
+# UncheckedExceptionChangeDetector
 
 A tool to identify and compare unchecked exceptions in Java applications and libraries.
 ![image](https://github.com/user-attachments/assets/94236f3e-c39c-45b4-a911-7f331934eed3)
@@ -7,7 +7,7 @@ A tool to identify and compare unchecked exceptions in Java applications and lib
 
 ## 📋 Overview
 
-**UncheckedException** is a tool designed to:
+**UnCheckGuard** is a tool designed to:
 
 1. Detect unchecked exceptions that may cause *behavioral breaking changes* (BBCs) in Java applications.  
 2. Compare two versions of a Java library to identify newly added unchecked exceptions.
