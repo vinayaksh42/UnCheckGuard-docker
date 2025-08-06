@@ -75,6 +75,17 @@ repoOwner/repoName
 ```
 
 ---
+## Reproducing our findings
+
+```bash
+docker build -t artifactuncheckguard:latest .
+mkdir results
+docker run --rm -v "${PWD}\results:/app/results" artifactuncheckguard:latest run hasMatches.txt
+```
+
+The `hasMatches.txt` file contains the list of all the clients that we have showcased in our findings.
+
+---
 
 ## 📁 Output
 
