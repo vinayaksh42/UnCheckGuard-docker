@@ -175,8 +175,8 @@ def main():
                 continue
 
             # 9B - Download the dependencies of the dependencies
-            download_depofdep(jar_file_new, depofdep_new_dir)
-            download_depofdep(jar_file_old, depofdep_old_dir)
+            # download_depofdep(jar_file_new, depofdep_new_dir)
+            # download_depofdep(jar_file_old, depofdep_old_dir)
         
             print(f"Running analysis on library: {libraryOld} and {libraryNew}")
             # 10B - Run the analysis on the library
