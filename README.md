@@ -46,7 +46,7 @@ No proprietary software or special hardware is required.
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/[username]/artifact-uncheckguard.git
+git clone https://github.com/vinayaksh42/uncheckguard-docker.git
 cd artifact-uncheckguard
 ````
 
@@ -125,10 +125,6 @@ docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run
 
 ---
 
-Here’s the updated version for your main `README.md`:
-
----
-
 ### 📊 Automatic Run Summary
 
 At the end of both Docker commands —
@@ -198,6 +194,9 @@ More information about each script can be found in the [`scripts/`](./scripts) f
 
 ## 📬 Contact
 
-For questions or support, contact: Vinayak Sharma – [v236shar@uwaterloo.ca](mailto:v236shar@uwaterloo.ca)
+For questions or support, contact: 
+- Vinayak Sharma – [v236shar@uwaterloo.ca](mailto:v236shar@uwaterloo.ca)
+- 
+
 
 
