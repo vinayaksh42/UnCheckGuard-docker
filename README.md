@@ -1,8 +1,8 @@
 # 🛡️ UnCheckGuard – SCAM 2025 Artifact
 
 **Authors:** Vinayak Sharma, Patrick Lam   
-+**Associated Paper:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf) (preprint)
-+**Conference:** IEEE International Conference on Source Code Analysis and Manipulation (SCAM) 2025
+**Associated Paper:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf) (preprint)
+**Conference:** IEEE International Conference on Source Code Analysis and Manipulation (SCAM) 2025
 **DOI (Artifact):** [Zenodo DOI link]  
 ---
 
