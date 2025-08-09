@@ -1,8 +1,8 @@
 # 🛡️ UnCheckGuard – ICSME 2025 Artifact
 
 **Authors:** Vinayak Sharma, Patrick Lam   
-**Associated Paper:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf) (preprint)
-**Conference:** IEEE International Conference on Source Code Analysis and Manipulation (SCAM 2025)
+**Associated Paper:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf)  
+**Conference:** IEEE International Conference on Software Maintenance and Evolution (ICSME) 2025  
 **DOI (Artifact):** [Zenodo DOI link]  
 ---
 
@@ -46,7 +46,7 @@ No proprietary software or special hardware is required.
 
 **1. Clone the repository**
 ```bash
-git clone https://github.com/[username]/artifact-uncheckguard.git
+git clone https://github.com/vinayaksh42/uncheckguard-docker.git
 cd artifact-uncheckguard
 ````
 
@@ -93,10 +93,10 @@ docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest ana
 
 ```bash
 mkdir results
-docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run <path/to/list.txt>
+docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run <path/to/file.txt>
 ```
 
-The text file containing the list of clients should be placed within the `scripts/` folder before building the image.
+The text file should be placed within the `scripts/` folder before building the image.
 
 **Example:**
 
@@ -122,10 +122,6 @@ docker build -t artifactuncheckguard:latest .
 mkdir results
 docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt
 ```
-
----
-
-Here’s the updated version for your main `README.md`:
 
 ---
 
@@ -198,6 +194,9 @@ More information about each script can be found in the [`scripts/`](./scripts) f
 
 ## 📬 Contact
 
-For questions or support, contact: Vinayak Sharma – [v236shar@uwaterloo.ca](mailto:v236shar@uwaterloo.ca)
+For questions or support, contact: 
+- Vinayak Sharma – [v236shar@uwaterloo.ca](mailto:v236shar@uwaterloo.ca)
+- 
+
 
 
