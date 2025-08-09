@@ -1,6 +1,6 @@
 # 🛡️ UnCheckGuard – ICSME 2025 Artifact
 
-**Authors:** Vinayak Sharma, Patrick Lam
+**Authors:** Vinayak Sharma, Patrick Lam   
 **Associated Paper:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf)  
 **Conference:** IEEE International Conference on Software Maintenance and Evolution (ICSME) 2025  
 **DOI (Artifact):** [Zenodo DOI link]  
@@ -199,4 +199,5 @@ More information about each script can be found in the [`scripts/`](./scripts) f
 ## 📬 Contact
 
 For questions or support, contact: Vinayak Sharma – [v236shar@uwaterloo.ca](mailto:v236shar@uwaterloo.ca)
+
 
