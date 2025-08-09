@@ -6,12 +6,6 @@ import datetime
 import shutil
 from file_utils import create_directory
 
-def download_depofdep(jar_file, depofdep_dir):
-    if os.path.exists(depofdep_dir):
-        shutil.rmtree(depofdep_dir)
-    create_directory(depofdep_dir)
-    subprocess.run(['python3', 'getDepJars.py', jar_file, depofdep_dir])
-
 def saveResults(libraryOld, libraryNew, client_name, owner_repo, commit_sha, final_result, final_result_name, match_dir):
     print(f"Saving the results in {final_result}/results.csv")
 
