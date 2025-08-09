@@ -1,8 +1,8 @@
 # 🛡️ UnCheckGuard – ICSME 2025 Artifact
 
 **Authors:** Vinayak Sharma, Patrick Lam   
-**Associated Paper:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf)  
-**Conference:** IEEE International Conference on Software Maintenance and Evolution (ICSME) 2025  
+**Associated Paper:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf) (preprint)
+**Conference:** IEEE International Conference on Source Code Analysis and Manipulation (SCAM 2025)
 **DOI (Artifact):** [Zenodo DOI link]  
 ---
 
@@ -93,10 +93,10 @@ docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest ana
 
 ```bash
 mkdir results
-docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run <path/to/file.txt>
+docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run <path/to/list.txt>
 ```
 
-The text file should be placed within the `scripts/` folder before building the image.
+The text file containing the list of clients should be placed within the `scripts/` folder before building the image.
 
 **Example:**
 
