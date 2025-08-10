@@ -189,14 +189,27 @@ Additional outputs:
 
 The artifact’s core functionality — detecting newly added unchecked exceptions between two versions of a Java library and mapping them to client call sites — is implemented primarily in the Java sources under [`src/`](./src).
 
-* **`ConfigLoader.java`** – Reads and validates configuration settings.
-* **`DriverStubGenerator.java`** – Generates driver stubs for taint analysis based on the library methods under inspection.
-* **`JavaCompilerUtil.java`** – Utility to compile Java source code programmatically during analysis.
-* **`Main.java`** – Entry point for the analysis tool. Parses command-line arguments, loads configuration, and coordinates the client–library analysis pipeline.
-* **`RunFlowDroid.java`** – Integrates with the FlowDroid taint analysis framework to trace data flows from client inputs to library `throw` statements.
-* **`StmtCallGraphVisitor.java`** – Implements the logic for traversing library bytecode, identifying newly added `throw` statements, and determining their reachability.
-* **`StmtClientVisitor.java`** – Implements the logic for traversing client bytecode to identify external method calls.
-* **`XMLGenerator.java`** – Produces XML files describing the analysis results, used as input to taint analysis.
+- **`ConfigLoader.java`** 
+  - Reads and validates configuration settings.
+- **`DriverStubGenerator.java`** 
+  - Generates driver stubs for taint analysis based on the library methods under inspection.
+- **`JavaCompilerUtil.java`** 
+  - Utility to compile Java source code programmatically during analysis.
+- **`Main.java`** 
+  - Entry point for the analysis tool. Parses command-line arguments, loads configuration, and coordinates the client–library analysis pipeline.
+  - Collects the external methods present in the client application.
+  - Collects the public methods present in the java library under analysis.
+  - Performs the call graph based analysis on library for finding and storing all the exceptions thrown by the method.
+- **`RunFlowDroid.java`** 
+  - Integrates with the FlowDroid taint analysis framework to trace data flows from client inputs to library `throw` statements.
+  - Provides the information required for creating the DriverStub and XML file.
+  - Sets the configuration for taint analysis.
+- **`StmtCallGraphVisitor.java`** 
+  - Implements the logic for traversing library bytecode, identifying newly added `throw` statements, and determining their reachability.
+- **`StmtClientVisitor.java`** 
+  - Implements the logic for traversing client bytecode to identify external method calls.
+- **`XMLGenerator.java`** 
+  - Produces XML files describing the analysis results, used as input to taint analysis.
 
 ---
 
