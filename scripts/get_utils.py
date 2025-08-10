@@ -14,7 +14,11 @@ def clone_repository(repo_url, clone_dir, commit_sha):
         shutil.rmtree(clone_dir)
     try:
         print(f"\033[32mCloning repository from {repo_url} into {clone_dir}...\033[0m")
-        subprocess.run(["git", "clone", repo_url, clone_dir])
+        subprocess.run(["git", "clone", repo_url, clone_dir],
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                        check=True
+                    )
     except subprocess.CalledProcessError:
         print("\033[31mAn error occurred while cloning the repository.\033[0m")
         sys.exit(1)
@@ -22,7 +26,11 @@ def clone_repository(repo_url, clone_dir, commit_sha):
     if commit_sha:
         try:
             print(f"\033[32mChecking out commit: {commit_sha}\033[0m")
-            subprocess.run(["git", "checkout", commit_sha], cwd=clone_dir)
+            subprocess.run(["git", "checkout", commit_sha], cwd=clone_dir,
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                        check=True
+                    )
         except subprocess.CalledProcessError:
             print("\033[31mAn error occurred while cloning the repository.\033[0m")
             sys.exit(1)

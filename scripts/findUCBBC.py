@@ -15,6 +15,10 @@ JAVA_VERSION = {
     "11": os.environ.get("JAVA11_HOME", "/usr/lib/jvm/java-11-openjdk-amd64"),
 }
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(line_buffering=True)
+    sys.stderr.reconfigure(line_buffering=True)
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python3 findUCBBC.py <owner/repo> <commit_sha>")
@@ -103,7 +107,11 @@ def main():
             client_name = jar_files[0].split(".jar")[0]
             print(f"Running the analysis on the client jar file: {jar_files[0]}")
             create_directory(client_results_dir)
-            subprocess.run(['java', '-Xmx8g', '-cp', jar_path, "org.vinayak.Main","analyzeClient", "../client/client_jar/" + jar_files[0], client_name])
+            subprocess.run(['java', '-Xmx8g', '-cp', jar_path, "org.vinayak.Main","analyzeClient", "../client/client_jar/" + jar_files[0], client_name],
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                        check=True
+                    )
         else:
             print("Error: No client jar file found or multiple client jar files found.")
             sys.exit(1)
@@ -159,7 +167,11 @@ def main():
 
             libraryOldPath = "../client/dep_old/" + libraryOld + ".jar"
 
-            subprocess.run(['java', '-Xmx8g', '-cp', jar_path, "org.vinayak.Main","analyzeLibraryMethods", libraryOldPath, libraryOld])
+            subprocess.run(['java', '-Xmx8g', '-cp', jar_path, "org.vinayak.Main","analyzeLibraryMethods", libraryOldPath, libraryOld],
+                            stdout=subprocess.DEVNULL,
+                            stderr=subprocess.DEVNULL,
+                            check=True
+                        )
 
             with open(temp_file + "/" + libraryOld + ".json") as lib_file:
                 library_methods = set(json.load(lib_file))

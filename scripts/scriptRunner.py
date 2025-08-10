@@ -3,6 +3,10 @@ import os
 import sys
 from tqdm import tqdm
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(line_buffering=True)
+    sys.stderr.reconfigure(line_buffering=True)
+
 def main():
     if len(sys.argv) < 2:
         print("Usage: python3 scriptRunner.py <input_file>")

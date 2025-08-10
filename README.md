@@ -53,7 +53,7 @@ No proprietary software or special hardware is required.
 ```bash
 git clone https://github.com/vinayaksh42/uncheckguard-docker.git
 cd uncheckguard-docker
-````
+```
 
 **2. Build the Docker image**
 
@@ -61,6 +61,7 @@ cd uncheckguard-docker
 docker build -t artifactuncheckguard:latest .
 mkdir results
 ```
+**Note:** The command to build the Docker image takes around 60 seconds to 100 seconds (depending on internet bandwidth).
 
 **3. Verify installation**
 
@@ -128,6 +129,8 @@ docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run
 ```
 
 **Note:** The results in the summary may differ from those in the research paper because the tool analyzes the latest available library versions at runtime. A library may receive new updates after this artifact is published, which can change the analysis outcomes.
+
+**Time Estimate:** Running this script can take approximately 6 hours.
 
 ---
 

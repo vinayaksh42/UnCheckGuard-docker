@@ -34,7 +34,7 @@ case "${1:-}" in
     print_usage
     exit 0
     ;;
-    
+
   analyzeClient)
     if [[ $# -ne 3 ]]; then
       echo "[ERROR] Wrong number of arguments for analyzeClient."
@@ -42,8 +42,10 @@ case "${1:-}" in
       exit 1
     fi
     echo "[INFO] Running targeted analysis for repo '$2' at commit '$3'..."
+    rm -rf "$RESULTS_DIR"
+    mkdir -p "$RESULTS_DIR"
     cd /app/scripts
-    python3 findUCBBC.py "$2" "$3"
+    python3 -u findUCBBC.py "$2" "$3"
     summarize
     ;;
 
@@ -55,8 +57,10 @@ case "${1:-}" in
     fi
     local_list_file="${2:-}"
     echo "[INFO] Running full research pipeline..."
+    rm -rf "$RESULTS_DIR"
+    mkdir -p "$RESULTS_DIR"
     cd /app/scripts
-    python3 scriptRunner.py "$local_list_file"
+    python3 -u scriptRunner.py "$local_list_file"
     summarize
     ;;
 

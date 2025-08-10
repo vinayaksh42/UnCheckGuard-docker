@@ -21,7 +21,11 @@ def run_maven_commands(pom_dir, commands):
     for command in commands:
         print(f"Running Maven command: {' '.join(command)} in directory: {pom_dir}")
         try:
-            subprocess.run(command, cwd=pom_dir, check=True)
+            subprocess.run(command, cwd=pom_dir,
+                        stdout=subprocess.DEVNULL,
+                        stderr=subprocess.DEVNULL,
+                        check=True
+                    )
         except subprocess.CalledProcessError:
             print(f"An error occurred while running Maven command: {' '.join(command)}")
             sys.exit(1)

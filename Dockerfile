@@ -27,6 +27,8 @@ ENV PATH="${JAVA_HOME}/bin:${PATH}" \
     COMPARE_RESULT_DIR=../CompareResult \
     CLIENT_DIR=../client
 
+ENV PYTHONUNBUFFERED=1
+
 # Set working directory
 WORKDIR /app
 
