@@ -73,8 +73,8 @@ Expected output:
 
 ```
 Usage:
-  docker run ... run  <file.txt>          # Full pipeline
-  docker run ... find <repo> <commit>     # Targeted analysis
+  docker run ... run  <file.txt>                   # Batch Analysis
+  docker run ... analyzeClient <repo> <commit>     # Targeted Analysis
 ```
 
 ---
