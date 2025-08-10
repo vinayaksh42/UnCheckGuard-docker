@@ -16,10 +16,6 @@ This folder contains Python scripts that make up the UnCheckGuard analysis pipel
 - **get_utils.py**  
   Utilities to clone a repository from GitHub, optionally checkout a specific commit, and retrieve the latest commit SHA.
 
-- **matchResult.py**  
-  Merges existing results CSV with match JSON files to produce a combined CSV.  
-  *(Note: contains hardcoded file paths — mainly for offline merging.)*
-
 - **maven_utils.py**  
   Helpers to find `pom.xml`, run Maven commands, and copy built artifacts and dependencies.
 
@@ -33,8 +29,8 @@ This folder contains Python scripts that make up the UnCheckGuard analysis pipel
   Matches client method calls to changed library methods to identify which client methods should be tested.
 
 - **summarize_results.py**  
-  Generates a summary from `results.csv`, reporting counts of libraries, client–library pairs, matched methods, potential BBC libraries, total library calls, and unique clients. Optionally outputs JSON.
+  Generates a summary from `results.csv`, reporting counts of libraries, client–library pairs, matched methods, potential BBC libraries, total library calls, and unique clients. Outputs JSON.
 
 - **transitiveException.py**  
-  Analyzes two versions of a library (including dependencies) to find newly added unchecked exceptions.
+  Analyzes two versions of a library to find newly added unchecked exceptions.
 
