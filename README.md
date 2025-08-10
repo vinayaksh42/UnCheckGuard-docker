@@ -52,13 +52,14 @@ No proprietary software or special hardware is required.
 **1. Clone the repository**
 ```bash
 git clone https://github.com/vinayaksh42/uncheckguard-docker.git
-cd artifact-uncheckguard
+cd uncheckguard-docker
 ````
 
 **2. Build the Docker image**
 
 ```bash
 docker build -t artifactuncheckguard:latest .
+mkdir results
 ```
 
 **3. Verify installation**
@@ -82,7 +83,6 @@ Usage:
 ### 1️⃣ **Targeted Analysis on a Specific Client**
 
 ```bash
-mkdir results
 docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest analyzeClient <repoOwner/repoName> <commitHash>
 ```
 
@@ -97,7 +97,6 @@ docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest ana
 ### 2️⃣ **Analysis on a List of Clients**
 
 ```bash
-mkdir results
 docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run <path/to/list.txt>
 ```
 
@@ -120,7 +119,7 @@ repoOwner/repoName
 ## 📊 Reproducing Paper Results
 
 The file `hasMatches.txt` contains all the clients showcased in the paper’s findings.
-To reproduce them:
+To reproduce them, from scratch:
 
 ```bash
 docker build -t artifactuncheckguard:latest .
