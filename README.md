@@ -1,20 +1,21 @@
 # 🛡️ UnCheckGuard – SCAM 2025 Artifact
 
 * **Authors:** Vinayak Sharma, Patrick Lam   
-* **Associated Paper:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf) (preprint)
+* **Persistent paper link:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf) (preprint)
 * **Conference:** IEEE International Conference on Source Code Analysis and Manipulation (SCAM) 2025
-* **DOI (Artifact):** [Zenodo DOI link]  
----
-
-## 📝 Overview
-
-**UnCheckGuard** is a tool designed to:
-
-1. Detect unchecked exceptions that may cause *behavioral breaking changes* (BBCs) in Java applications.  
-2. Compare two versions of a Java library to identify newly added unchecked exceptions.
+* **DOI (Artifact):** [Zenodo DOI link]
+* **Abstract / Artifact Description:** This artifact is a Dockerized version of the research tool UnCheckGuard. It is a research tool for detecting newly added unchecked exceptions in upgraded Java libraries that may cause behavioral breaking changes (BBCs) in client applications. Given a client repository and commit (or a batch of repositories), it automatically clones, builds, and analyzes both the old and updated library versions, compares exception-throwing behavior, and identifies affected client call sites. The artifact includes all required Java code, Python scripts, datasets, and step-by-step instructions to fully reproduce the results reported in the associated paper, along with an automated summary report generated at the end of each run.
 
 This repository contains the **Dockerized artifact** for UnCheckGuard, enabling easy setup and execution in a controlled environment.  
 The original main repository is available at: [https://github.com/vinayaksh42/UncheckedException](https://github.com/vinayaksh42/UncheckedException)
+
+---
+
+## 🏷️ Badges Claimed
+
+* **Open Research Object** – This artifact is publicly available in a persistent archival repository with a DOI, is released under an OSI-approved open-source license, and includes complete documentation and source code.
+
+* **Research Object Reviewed** – This artifact is complete, consistent with the associated paper, well-documented, and fully exercisable via Docker. It includes all necessary data, code, and scripts to reproduce the results, along with clear step-by-step instructions and automated summary reporting.
 
 ---
 
@@ -33,10 +34,14 @@ OSI-approved license ✔ — requirement for the *Open Research Object* badge.
   - Disk: 10 GB free space
 - **Software:**
   - Docker ≥ 20.10
+  - Python3 (if running the summary python script manually)
   - Tested on:
-    - Ubuntu 22.04 LTS
-    - macOS 14 (Apple Silicon)
+    - Ubuntu 24.04 LTS
     - Windows 11
+- **Skills & Knowledge:**
+  - Docker
+  - Python 
+  - Java
 
 No proprietary software or special hardware is required.
 
@@ -123,6 +128,8 @@ mkdir results
 docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt
 ```
 
+**Note:** The results in the summary may differ from those in the research paper because the tool analyzes the latest available library versions at runtime. A library may receive new updates after this artifact is published, which can change the analysis outcomes.
+
 ---
 
 ### 📊 Automatic Run Summary
@@ -144,14 +151,9 @@ It reads `results/results.csv` from the run and prints a summary that includes:
 * Libraries with at least one matched method
 * Total library usage calls
 * Total unique clients
+* Semantic Version Change Types — classification of each impactful LibraryOld → LibraryNew pair with > 0 matched methods as major, minor, patch, none, or unknown.
 
 The same summary is also saved to `results/summary.json` for later reference.
-
-You can also run this script manually, but it requires **Python 3** and the **pandas** library to be installed:
-
-```bash
-python3 scripts/summarize_results.py --csv ./results/results.csv --out ./results/summary.json
-```
 
 ---
 
@@ -160,6 +162,9 @@ python3 scripts/summarize_results.py --csv ./results/results.csv --out ./results
 | Paper Result                     | Command                                                                                                      | Output Location      |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------- |
 | Library-Client pairs, libraries, callsites       | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt`            | `results/` Summary.json |
+| Table 1: Exception Analysis Funnel | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt` | `results/` Summary.json |
+| Table 2:  Distribution of reachable newly-added exceptions across version types | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt` | `results/` Summary.json |
+| Table 3: Clients, libraries,versions, andcountsofcallsitesreachingnewly-addedexceptions | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt` | `results/`  results.csv |
 
 ---
 
@@ -177,7 +182,6 @@ Additional outputs:
 ## 📂 Repository Structure
 
 ```
-.
 ├── Dockerfile               # Docker build instructions
 ├── LICENSE.md               # License information
 ├── README.md                # This file
@@ -189,6 +193,7 @@ Additional outputs:
 ├── src/                     # Java program (client-library analysis)
 ```
 More information about each script can be found in the [`scripts/`](./scripts) folder’s README.
+The `src/` folder contains the Java application responsible for analyzing client applications as well as libraries.
 
 ---
 
