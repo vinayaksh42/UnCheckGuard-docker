@@ -39,7 +39,7 @@ OSI-approved license ✔ — requirement for the *Open Research Object* badge.
     - Ubuntu 24.04 LTS
     - Windows 11
 - **Skills & Knowledge:**
-  - Docker
+  - Docker Usage
   - Python 
   - Java
 

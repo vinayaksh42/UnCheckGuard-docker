@@ -30,6 +30,11 @@ summarize() {
 }
 
 case "${1:-}" in
+  ""|--help|-h|help)
+    print_usage
+    exit 0
+    ;;
+    
   analyzeClient)
     if [[ $# -ne 3 ]]; then
       echo "[ERROR] Wrong number of arguments for analyzeClient."

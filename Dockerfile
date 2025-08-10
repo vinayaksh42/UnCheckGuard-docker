@@ -18,8 +18,9 @@ RUN apt-get update && \
 # Environment variables
 ENV JAVA8_HOME=/usr/lib/jvm/java-8-openjdk-amd64 \
     JAVA11_HOME=/usr/lib/jvm/java-11-openjdk-amd64 \
-    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64 \
-    PATH=$JAVA_HOME/bin:$PATH \
+    JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+
+ENV PATH="${JAVA_HOME}/bin:${PATH}" \
     RESULTS_DIR=../results \
     MATCH_DIR=../Match \
     LIBRARY_RESULT_DIR=../LibraryResult \
