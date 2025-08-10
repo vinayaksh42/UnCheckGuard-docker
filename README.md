@@ -83,6 +83,8 @@ Usage:
 
 ### 1️⃣ **Targeted Analysis on a Specific Client**
 
+**Targeted Analysis:** Analyze a single client repository at a specific commit to check for potential behavioral breaking changes caused by newly added unchecked exceptions in its dependencies.
+
 ```bash
 docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest analyzeClient <repoOwner/repoName> <commitHash>
 ```
@@ -96,6 +98,8 @@ docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest ana
 ---
 
 ### 2️⃣ **Analysis on a List of Clients**
+
+**Batch Analysis:** Analyze multiple clients in one run using a list of repositories, enabling large-scale evaluation similar to the experiments in the paper.
 
 ```bash
 docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run <path/to/list.txt>

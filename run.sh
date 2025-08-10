@@ -12,8 +12,8 @@ mkdir -p "$RESULTS_DIR" "$MATCH_DIR" "$LIBRARY_RESULT_DIR" "$COMPARE_RESULT_DIR"
 
 print_usage() {
   echo "Usage:"
-  echo "  docker run ... run  <file.txt>                # Full pipeline (batch)"
-  echo "  docker run ... analyzeClient <repo> <commit>  # Targeted analysis"
+  echo "  docker run ... run  <file.txt>                # Batch Analysis"
+  echo "  docker run ... analyzeClient <repo> <commit>  # Targeted Analysis"
 }
 
 summarize() {
