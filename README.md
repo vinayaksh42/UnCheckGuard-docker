@@ -3,7 +3,7 @@
 * **Authors:** Vinayak Sharma, Patrick Lam   
 * **Persistent paper link:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf) (preprint)
 * **Conference:** IEEE International Conference on Source Code Analysis and Manipulation (SCAM) 2025
-* **DOI (Artifact):** [Zenodo DOI link](https://doi.org/10.5281/zenodo.16788650)
+* **DOI (Artifact):** [Zenodo DOI link](https://doi.org/10.5281/zenodo.16788650) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16788651.svg)](https://doi.org/10.5281/zenodo.16788650)
 * **Abstract / Artifact Description:** This artifact is a Dockerized version of the research tool UnCheckGuard. It is a research tool for detecting newly added unchecked exceptions in upgraded Java libraries that may cause behavioral breaking changes (BBCs) in client applications. Given a client repository and commit (or a batch of repositories), it automatically clones, builds, and analyzes both the old and updated library versions, compares exception-throwing behavior, and identifies affected client call sites. The artifact includes all required Java code, Python scripts, datasets, and step-by-step instructions to fully reproduce the results reported in the associated paper, along with an automated summary report generated at the end of each run.
 
 This repository contains the **Dockerized artifact** for UnCheckGuard, enabling easy setup and execution in a controlled environment.  
