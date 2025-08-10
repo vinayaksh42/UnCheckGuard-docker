@@ -26,21 +26,13 @@ def runAnalysisOnLibrary(libraryOld, libraryNew, matchedMethodsDir):
 
     # check if library is already analyzed
     # Invoke the JAR file for the older version of the library, passing JAR filenames as arguments
-    subprocess.run(['java', '-Xmx8g', '-cp', jar_path, "org.vinayak.Main","callgraphBasedLibraryAnalysis", libraryOldPath, libraryOld, matchedMethodsDir] + jar_files,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                check=True
-            )
+    subprocess.run(['java', '-Xmx8g', '-cp', jar_path, "org.vinayak.Main","callgraphBasedLibraryAnalysis", libraryOldPath, libraryOld, matchedMethodsDir] + jar_files)
 
     # Fetch all JAR files in the depofdepNew folder
     jar_files = glob.glob(os.path.join(depofdepNew_folder, "*.jar"))
 
     # Invoke the JAR file for newer version of the library
-    subprocess.run(['java', '-Xmx8g', '-cp', jar_path, "org.vinayak.Main", "callgraphBasedLibraryAnalysis",libraryNewPath, libraryNew, matchedMethodsDir] + jar_files,
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                check=True
-            )
+    subprocess.run(['java', '-Xmx8g', '-cp', jar_path, "org.vinayak.Main", "callgraphBasedLibraryAnalysis",libraryNewPath, libraryNew, matchedMethodsDir] + jar_files)
 
 def compareOldandNew(libraryOld, libraryNew):
     jsonFilePathOld = '../LibraryResult/' + libraryOld + '.json'
