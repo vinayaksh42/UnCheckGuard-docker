@@ -229,6 +229,8 @@ The artifact’s core functionality — detecting newly added unchecked exceptio
 More information about each script can be found in the [`scripts/`](./scripts) folder’s README.
 The `src/` folder contains the Java application responsible for analyzing client applications as well as libraries.
 
+The `src/main/resources/config.properties` contains the configuration required by the Java program.
+
 ---
 
 ## 📬 Contact
