@@ -134,7 +134,7 @@ docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run
 
 **Note:** The results in the summary may differ from those in the research paper because the tool analyzes the latest available library versions at runtime. A library may receive new updates after this artifact is published, which can change the analysis outcomes.
 
-**Time Estimate:** Running this script can take approximately 6 to 12 hours.
+**Time Estimate:** Running this script can take approximately 3 to 6 hours.
 
 ---
 
