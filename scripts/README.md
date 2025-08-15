@@ -34,3 +34,9 @@ This folder contains Python scripts that make up the UnCheckGuard analysis pipel
 - **transitiveException.py**  
   Analyzes two versions of a library to find newly added unchecked exceptions.
 
+- **filterDataset.py**
+  Script used for filtering all the 10 plus star repo from DUETS dataset
+
+- **pickClient.py**
+  Script for picking a certain number of clients from the ten star client list in a uniform manner.
+

@@ -3,7 +3,7 @@
 * **Authors:** Vinayak Sharma, Patrick Lam   
 * **Persistent paper link:** [Detecting Exception-Related Behavioural Breaking Changes with UnCheckGuard](./main.pdf) (preprint)
 * **Conference:** IEEE International Conference on Source Code Analysis and Manipulation (SCAM) 2025
-* **DOI (Artifact):** [Zenodo DOI link](https://doi.org/10.5281/zenodo.16788650) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16788651.svg)](https://doi.org/10.5281/zenodo.16788650)
+* **DOI (Artifact):** [Zenodo DOI link](https://doi.org/10.5281/zenodo.16788650) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.16788650.svg)](https://doi.org/10.5281/zenodo.16788650)
 * **Abstract / Artifact Description:** This artifact is a Dockerized version of the research tool UnCheckGuard. It is a research tool for detecting newly added unchecked exceptions in upgraded Java libraries that may cause behavioral breaking changes (BBCs) in client applications. Given a client repository and commit (or a batch of repositories), it automatically clones, builds, and analyzes both the old and updated library versions, compares exception-throwing behavior, and identifies affected client call sites. The artifact includes all required Java code, Python scripts, datasets, and step-by-step instructions to fully reproduce the results reported in the associated paper, along with an automated summary report generated at the end of each run.
 
 This repository contains the **Dockerized artifact** for UnCheckGuard, enabling easy setup and execution in a controlled environment.  
@@ -110,7 +110,7 @@ The text file containing the list of clients should be placed within the `script
 **Example:**
 
 ```bash
-docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt
+docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run clientDataSet.txt
 ```
 
 File format (`list.txt`):
@@ -123,18 +123,18 @@ repoOwner/repoName
 
 ## 📊 Reproducing Paper Results
 
-The file `hasMatches.txt` contains all the clients showcased in the paper’s findings.
+The file `clientDataSet.txt` contains all the clients showcased in the paper’s findings.
 To reproduce them, from scratch:
 
 ```bash
 docker build -t artifactuncheckguard:latest .
 mkdir results
-docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt
+docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run clientDataSet.txt
 ```
 
 **Note:** The results in the summary may differ from those in the research paper because the tool analyzes the latest available library versions at runtime. A library may receive new updates after this artifact is published, which can change the analysis outcomes.
 
-**Time Estimate:** Running this script can take approximately 3 to 6 hours.
+**Time Estimate:** Running this script can take approximately 16 hours.
 
 ---
 
@@ -167,10 +167,10 @@ The same summary is also saved to `results/summary.json` for later reference.
 
 | Paper Result                     | Command                                                                                                      | Output Location      |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------- |
-| Library-Client pairs, libraries, callsites       | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt`            | `results/` Summary.json |
-| Table 1: Exception Analysis Funnel | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt` | `results/` Summary.json |
-| Table 2:  Distribution of reachable newly-added exceptions across version types | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt` | `results/` Summary.json |
-| Table 3: Clients, libraries,versions, andcountsofcallsitesreachingnewly-addedexceptions | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run hasMatches.txt` | `results/`  results.csv |
+| Library-Client pairs, libraries, callsites       | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run clientDataSet.txt`            | `results/` Summary.json |
+| Table 1: Exception Analysis Funnel | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run clientDataSet.txt` | `results/` Summary.json |
+| Table 2:  Distribution of reachable newly-added exceptions across version types | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run clientDataSet.txt` | `results/` Summary.json |
+| Table 3: Clients, libraries,versions, andcountsofcallsitesreachingnewly-addedexceptions | `docker run --rm -v "$(pwd)/results:/app/results" artifactuncheckguard:latest run clientDataSet.txt` | `results/`  results.csv |
 
 ---
 
@@ -225,6 +225,7 @@ The artifact’s core functionality — detecting newly added unchecked exceptio
 ├── requirements.txt/        # Python requirements
 ├── run.sh/                  # shell script commands for running analysis
 ├── src/                     # Java program (client-library analysis)
+├── savedResults/            # Contains the saved results from the run of scripts/clientDataSet.txt list
 ```
 More information about each script can be found in the [`scripts/`](./scripts) folder’s README.
 The `src/` folder contains the Java application responsible for analyzing client applications as well as libraries.
